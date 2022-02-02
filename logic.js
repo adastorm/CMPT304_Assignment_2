@@ -7,8 +7,8 @@ const gameState = ["", "", "", "", "", "", "", "", ""];
 
 
 //Main Loop
-for (let i = 0; i < gameState.length; i++){
-    document.getElementById("tile"+(i+1)).addEventListener("click",function(){takeTurn(i)});
+for (let i = 0; i < gameState.length; i++) {
+    document.getElementById("tile" + (i + 1)).addEventListener("click", function () { takeTurn(i) });
 }
 
 document.getElementById("RestartButton").addEventListener("click", resetGame);
@@ -42,16 +42,14 @@ take turn("")
 */
 
 function takeTurn(tile) {
-    if (gameState[tile] == "")
-    {
-        console.log("IN LOOP");
+    if (gameState[tile] == "") {
         gameState[tile] = currentPlayer;
     }
     updateBoard();
     checkForWin();
     if (currentPlayer == "X") currentPlayer = "O";
     else currentPlayer = "X";
-    
+
 }
 
 
@@ -64,12 +62,35 @@ checkForWin()
 }
 */
 function checkForWin() {
-    
+
     let hasWon = false;
-    let winner = "";
+    let winner = ""
 
-    
+    const waysToWin = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [1, 5, 9],
+        [7, 5, 3]        
+    ];
 
+    for (let index = 0; index < waysToWin.length; index++) {
+        pos1 = gameState[waysToWin[index][0]];
+        pos2 = gameState[waysToWin[index][1]];
+        pos3 = gameState[waysToWin[index][2]];
+
+        if (pos1 !== "" && pos2 !== "" && pos3 !== ""){
+            if (pos1 == pos2 && pos2 == pos3) {
+                hasWon = true;
+                winner = pos1;
+                break;
+            }     
+        }
+        
+    }
 
     if (hasWon == true) displayWinner(winner);
 }
@@ -82,7 +103,7 @@ DisplayWinner
 }
 */
 function displayWinner(winner) {
-    document.getElementById("winText").innerText = "Player "+ winner+" has won!"
+    document.getElementById("winText").innerText = "Player " + winner + " has won!"
     gameOver = true;
 }
 
@@ -93,12 +114,12 @@ ResetGame
     2.restart the game
 }
 */
-function resetGame()
-{
+function resetGame() {
     for (let index = 0; index < gameState.length; index++) {
         gameState[index] = "";
     }
     gameOver = false;
+    document.getElementById("winText").innerText = "";
     updateBoard();
 }
 
@@ -109,8 +130,8 @@ Change Boared
     Check the array and apply it to the document
 }
 */
-function updateBoard(){
-    for (let index = 0; index < gameState.length; index++) {    
-        document.getElementById("tile"+(index+1)).innerHTML = gameState[index];
+function updateBoard() {
+    for (let index = 0; index < gameState.length; index++) {
+        document.getElementById("tile" + (index + 1)).innerHTML = gameState[index];
     }
 }
