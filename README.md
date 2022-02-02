@@ -12,6 +12,6 @@ For: Ben Cameron
 
 - [x] Finish the css style
 
-- [ ] Create the game logic for tic-tac-toe
+- [x] Create the game logic for tic-tac-toe
 
 - [x] Have the logic interact with website
