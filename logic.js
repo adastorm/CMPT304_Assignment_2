@@ -42,14 +42,15 @@ take turn("")
 */
 
 function takeTurn(tile) {
-    if (gameState[tile] == "") {
-        gameState[tile] = currentPlayer;
+    if (gameOver != true) {
+        if (gameState[tile] == "") {
+            gameState[tile] = currentPlayer;
+        }
+        updateBoard();
+        checkForWin();
+        if (currentPlayer == "X") currentPlayer = "O";
+        else currentPlayer = "X";
     }
-    updateBoard();
-    checkForWin();
-    if (currentPlayer == "X") currentPlayer = "O";
-    else currentPlayer = "X";
-
 }
 
 
@@ -78,9 +79,9 @@ function checkForWin() {
     ];
 
     for (let index = 0; index < waysToWin.length; index++) {
-        pos1 = gameState[waysToWin[index][0]];
-        pos2 = gameState[waysToWin[index][1]];
-        pos3 = gameState[waysToWin[index][2]];
+        pos1 = gameState[waysToWin[index][0]-1];
+        pos2 = gameState[waysToWin[index][1]-1];
+        pos3 = gameState[waysToWin[index][2]-1];
 
         if (pos1 !== "" && pos2 !== "" && pos3 !== ""){
             if (pos1 == pos2 && pos2 == pos3) {
@@ -91,8 +92,14 @@ function checkForWin() {
         }
         
     }
-
     if (hasWon == true) displayWinner(winner);
+    else {
+        let empty = false;
+        for (let index = 0; index < gameState.length;index++){
+            if (gameState[index] == "") empty = true;
+        }
+        if (empty == false) displayWinner("N");
+    }
 }
 
 /*
@@ -103,7 +110,10 @@ DisplayWinner
 }
 */
 function displayWinner(winner) {
-    document.getElementById("winText").innerText = "Player " + winner + " has won!"
+    if (winner != "N")
+         document.getElementById("winText").innerText = "Player " + winner + " has won!";
+    else
+         document.getElementById("winText").innerText = "Nobody Has Won!";
     gameOver = true;
 }
 
