@@ -6,8 +6,8 @@ body{
 }
 
 h1{
-    text-align: center;
-    color: white;
+    color: white ;
+    
 }
 
 table{
@@ -25,8 +25,8 @@ td{
 .game_board{
     display: grid;
     grid-template-columns: auto auto auto;
-    background-color: #2196F3;
-    width: 305px;
+    background-color: #000000;
+    width: 605px;
     padding: 10px;
     margin: 50px auto;
 }
@@ -34,8 +34,8 @@ td{
 .tile {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    font-size: 30px;
+    font-size: 180px;
     text-align: center;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 }

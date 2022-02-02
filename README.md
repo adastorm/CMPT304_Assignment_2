@@ -1,11 +1,17 @@
-# CMPT305 Assignment 2 - Tic Tac Toe
+This is the readme for CMPT 305 Assignment 2
+
+By: Jonah Watts
+
+For: Ben Cameron
 
 ---
 
-- [ ] Finish the main html layout
+### Goals for the project
 
-- [ ] Finish the css style
+- [x] Finish the main html layout
+
+- [x] Finish the css style
 
 - [ ] Create the game logic for tic-tac-toe
 
-- [ ] Have the logic interact with website
+- [x] Have the logic interact with website

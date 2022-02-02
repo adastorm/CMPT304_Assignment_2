@@ -1,11 +1,18 @@
 //Game Over Indicatior
-var gameOver = false;
+let gameOver = false;
+let currentPlayer = "X";
 
 //The Game State
 const gameState = ["", "", "", "", "", "", "", "", ""];
 
 
+//Main Loop
+for (let i = 0; i < gameState.length; i++){
+    document.getElementById("tile"+(i+1)).addEventListener("click",function(){takeTurn(i)});
+}
 
+document.getElementById("RestartButton").addEventListener("click", resetGame);
+updateBoard();
 
 /*
 Steps for the game
@@ -18,6 +25,7 @@ Functions needed for this to work:
     checkForWin()
     Display Winner
     ResetGame
+    ChangeBoared
 */
 
 
@@ -29,9 +37,22 @@ take turn("")
         2b.if invalid, continue to 1
     2.change the state of the game board
     3.Update the content of the html
+    4.Change player
 }
-
 */
+
+function takeTurn(tile) {
+    if (gameState[tile] == "")
+    {
+        console.log("IN LOOP");
+        gameState[tile] = currentPlayer;
+    }
+    updateBoard();
+    checkForWin();
+    if (currentPlayer == "X") currentPlayer = "O";
+    else currentPlayer = "X";
+    
+}
 
 
 /*
@@ -42,6 +63,16 @@ checkForWin()
     3.return the player that has won, n otherwise
 }
 */
+function checkForWin() {
+    
+    let hasWon = false;
+    let winner = "";
+
+    
+
+
+    if (hasWon == true) displayWinner(winner);
+}
 
 /*
 DisplayWinner
@@ -50,6 +81,10 @@ DisplayWinner
     2.end the game
 }
 */
+function displayWinner(winner) {
+    document.getElementById("winText").innerText = "Player "+ winner+" has won!"
+    gameOver = true;
+}
 
 /*
 ResetGame
@@ -58,3 +93,24 @@ ResetGame
     2.restart the game
 }
 */
+function resetGame()
+{
+    for (let index = 0; index < gameState.length; index++) {
+        gameState[index] = "";
+    }
+    gameOver = false;
+    updateBoard();
+}
+
+
+/*
+Change Boared
+{
+    Check the array and apply it to the document
+}
+*/
+function updateBoard(){
+    for (let index = 0; index < gameState.length; index++) {    
+        document.getElementById("tile"+(index+1)).innerHTML = gameState[index];
+    }
+}
