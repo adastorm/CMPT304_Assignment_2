@@ -45,12 +45,13 @@ function takeTurn(tile) {
     if (gameOver != true) {
         if (gameState[tile] == "") {
             gameState[tile] = currentPlayer;
+            if (currentPlayer == "X") currentPlayer = "O";
+            else currentPlayer = "X";
         }
 
         checkForWin();
-        if (currentPlayer == "X") currentPlayer = "O";
-        else currentPlayer = "X";
-                updateBoard();
+        
+        updateBoard();
     }
 }
 
