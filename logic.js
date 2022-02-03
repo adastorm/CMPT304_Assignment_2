@@ -46,10 +46,11 @@ function takeTurn(tile) {
         if (gameState[tile] == "") {
             gameState[tile] = currentPlayer;
         }
-        updateBoard();
+
         checkForWin();
         if (currentPlayer == "X") currentPlayer = "O";
         else currentPlayer = "X";
+                updateBoard();
     }
 }
 
@@ -131,6 +132,7 @@ function resetGame() {
     gameOver = false;
     document.getElementById("winText").innerText = "";
     updateBoard();
+    currentPlayer = "X";
 }
 
 
@@ -141,6 +143,8 @@ Change Boared
 }
 */
 function updateBoard() {
+    document.getElementById("turn").innerText =
+      "🌠 Its " + currentPlayer + "'s turn🌠";
     for (let index = 0; index < gameState.length; index++) {
         document.getElementById("tile" + (index + 1)).innerHTML = gameState[index];
     }
