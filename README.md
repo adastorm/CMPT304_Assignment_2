@@ -4,6 +4,12 @@ By: Jonah Watts
 
 For: Ben Cameron
 
+Files:
+ 
+ - index.html: the main html code
+ - logic.js : the game code for tic-tac-toe
+ - style.css: the stylesheet for the game
+
 ---
 
 ### Goals for the project
