@@ -1,4 +1,4 @@
-This is the readme for CMPT 305 Assignment 2
+This is the readme for CMPT 305 Assignment 2: Tic-Tac-Toe
 
 By: Jonah Watts
 

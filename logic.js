@@ -1,3 +1,7 @@
+//Jonah Watts
+//CMPT304
+
+
 //Generate a table
 for (let index = 1; index < 10; index++) {
    document.getElementById("game_board").innerHTML +=
