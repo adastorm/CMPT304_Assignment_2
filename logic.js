@@ -1,3 +1,10 @@
+//Generate a table
+for (let index = 1; index < 10; index++) {
+   document.getElementById("game_board").innerHTML +=
+		'<div class="tile" id="tile'+index+'">'+index+'</div>';
+}
+
+
 //Game Over Indicatior
 let gameOver = false;
 let currentPlayer = "X";
@@ -132,8 +139,8 @@ function resetGame() {
     }
     gameOver = false;
     document.getElementById("winText").innerText = "";
-    updateBoard();
     currentPlayer = "X";
+    updateBoard();
 }
 
 
