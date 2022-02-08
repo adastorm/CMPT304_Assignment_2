@@ -9,13 +9,6 @@ h1, h3{
     color: white ;
 }
 
-table{
-    font-size: xx-large;
-}
-
-td{
-    border: 10px solid yellow;
-}
 
 .diag{
     color : purple;
@@ -31,8 +24,8 @@ td{
 }
 
 .tile {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: chartreuse;
+    border: 1px solid black;
     font-size: 180px;
     text-align: center;
     width: 200px;
